@@ -16,9 +16,7 @@ open class WWAssistiveTouch: UIWindow {
         case animation  // 動畫中
         case dismiss    // 隱藏
     }
-    
-    public weak var delegate: WWAssistiveTouchDelegate?
-    
+        
     private lazy var assistiveTouch = UIStoryboard(name: "Storyboard", bundle: .module).instantiateViewController(withIdentifier: "AssistiveTouch") as? AssistiveTouchViewController
     
     private override init(frame: CGRect) {
@@ -32,10 +30,6 @@ open class WWAssistiveTouch: UIWindow {
     public convenience init(touchViewController: UIViewController, frame: CGRect = .init(origin: .init(x: 256, y: 256), size: .init(width: 64, height: 64)), icon: UIImage? = nil, delegate: WWAssistiveTouchDelegate? = nil) {
         self.init(frame: frame)
         self.initSetting(with: touchViewController, frame: frame, icon: icon, delegate: delegate)
-    }
-    
-    deinit {
-        delegate = nil
     }
 }
 
@@ -72,7 +66,6 @@ private extension WWAssistiveTouch {
     func initSetting(with touchViewController: UIViewController, frame: CGRect, icon: UIImage?, delegate: WWAssistiveTouchDelegate?) {
         
         windowScene = UIWindowScene._current
-        self.delegate = delegate
         
         assistiveTouch?.touchViewController = touchViewController
         assistiveTouch?.touchViewFrame = frame
@@ -84,6 +77,6 @@ private extension WWAssistiveTouch {
             ._rootViewController(assistiveTouch)
             ._makeKeyAndVisible()
         
-        self.delegate?.assistiveTouch(self, status: .dismiss)
+        delegate?.assistiveTouch(self, status: .dismiss)
     }
 }
