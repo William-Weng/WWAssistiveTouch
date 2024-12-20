@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "wwassistivetouch",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/William-Weng/WWAssistiveTouch",
+      "state" : {
+        "revision" : "d702b7e4b0044150759dda279e417f982498e710",
+        "version" : "1.0.0"
+      }
+    }
+  ],
+  "version" : 2
+}
