@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/William-Weng/WWAssistiveTouch",
       "state" : {
-        "revision" : "d979a295d4d504df30b972ea9fce9c820f7b10f8",
-        "version" : "1.0.2"
+        "revision" : "5fd56b2f55f426225c1ed9b2ea29b49c11fdbb29",
+        "version" : "1.0.3"
       }
     }
   ],
