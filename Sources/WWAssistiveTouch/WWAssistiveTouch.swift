@@ -61,17 +61,19 @@ private extension WWAssistiveTouch {
     /// - Parameters:
     ///   - touchViewController: UIViewController
     ///   - frame: CGRect
+    ///   - icon: UIImage?
+    ///   - delegate: WWAssistiveTouchDelegate?
     func initSetting(with touchViewController: UIViewController, frame: CGRect, icon: UIImage?, delegate: WWAssistiveTouchDelegate?) {
+        
+        windowScene = UIWindowScene._current
         
         assistiveTouch?.touchViewController = touchViewController
         assistiveTouch?.touchViewFrame = frame
         assistiveTouch?.delegate = delegate
         assistiveTouch?.icon = icon
-
-        if #available(iOS 13.0, *) { windowScene = UIWindowScene._current }
         
         self._backgroundColor(.clear)
-            ._windowLevel(.alert)
+            ._windowLevel(.alert + 1000)
             ._rootViewController(assistiveTouch)
             ._makeKeyAndVisible()
     }
