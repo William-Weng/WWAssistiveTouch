@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Nvk-hW-CXA">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="page" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ちいかわ" translatesAutoresizingMaskIntoConstraints="NO" id="boV-Cg-pHV">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="boV-Cg-pHV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="HFa-2A-UO7"/>
+                            <constraint firstItem="boV-Cg-pHV" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="TQA-sf-sgd"/>
+                            <constraint firstAttribute="bottom" secondItem="boV-Cg-pHV" secondAttribute="bottom" id="U5q-6g-37E"/>
+                            <constraint firstItem="boV-Cg-pHV" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="kjC-dg-wX4"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="ASc-YT-plj">
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="bvc-Qm-cMK">
+                            <connections>
+                                <segue destination="hgT-Qq-drb" kind="show" id="iSm-7A-Zxy"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1049.2753623188407" y="-2.0089285714285712"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="zqa-cL-I7e">
+            <objects>
+                <viewController id="hgT-Qq-drb" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JXj-nT-AUs">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ちいかわ2" translatesAutoresizingMaskIntoConstraints="NO" id="Ce6-bT-PrH">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="J7X-Qd-ELm"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Ce6-bT-PrH" firstAttribute="trailing" secondItem="J7X-Qd-ELm" secondAttribute="trailing" id="1Ir-o8-fin"/>
+                            <constraint firstAttribute="bottom" secondItem="Ce6-bT-PrH" secondAttribute="bottom" id="ZRq-lq-Nqm"/>
+                            <constraint firstItem="Ce6-bT-PrH" firstAttribute="top" secondItem="JXj-nT-AUs" secondAttribute="top" id="a0p-3d-h4V"/>
+                            <constraint firstItem="Ce6-bT-PrH" firstAttribute="leading" secondItem="J7X-Qd-ELm" secondAttribute="leading" id="whq-pr-ePR"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="eft-zC-qhI"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Raf-ta-rmZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1933.3333333333335" y="-2.0089285714285712"/>
+        </scene>
+        <!--Touch View Controller-->
+        <scene sceneID="me3-om-O35">
+            <objects>
+                <viewController storyboardIdentifier="Touch" useStoryboardIdentifierAsRestorationIdentifier="YES" id="DWa-TP-1V7" customClass="TouchViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SLH-VK-6w4">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="GVp-w6-yXV">
+                                <rect key="frame" x="64" y="305" width="286" height="286"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="2Ki-dm-ccA">
+                                        <rect key="frame" x="0.0" y="0.0" width="286" height="84.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pfm-Gy-ntc">
+                                                <rect key="frame" x="0.0" y="0.0" width="84.5" height="84.5"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" image="Rec2"/>
+                                                <connections>
+                                                    <action selector="dismissTouchView:" destination="DWa-TP-1V7" eventType="touchUpInside" id="CIi-ey-tT7"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DXX-2z-cJQ">
+                                                <rect key="frame" x="100.5" y="0.0" width="85" height="84.5"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" image="Rec2"/>
+                                                <connections>
+                                                    <action selector="dismissTouchView:" destination="DWa-TP-1V7" eventType="touchUpInside" id="o4Z-4X-5Vd"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rz2-Gw-eD3">
+                                                <rect key="frame" x="201.5" y="0.0" width="84.5" height="84.5"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" image="Rec2"/>
+                                                <connections>
+                                                    <action selector="dismissTouchView:" destination="DWa-TP-1V7" eventType="touchUpInside" id="4ST-CB-7ca"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="97D-rc-Sbx">
+                                        <rect key="frame" x="0.0" y="100.5" width="286" height="85"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dk0-n5-csN">
+                                                <rect key="frame" x="0.0" y="0.0" width="84.5" height="85"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" image="Rec2"/>
+                                                <connections>
+                                                    <action selector="dismissTouchView:" destination="DWa-TP-1V7" eventType="touchUpInside" id="mCh-uK-2Le"/>
+                                                </connections>
+                                            </button>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WxU-8W-onk">
+                                                <rect key="frame" x="100.5" y="0.0" width="85" height="85"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WFE-cR-mq8">
+                                                <rect key="frame" x="201.5" y="0.0" width="84.5" height="85"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" image="Rec2"/>
+                                                <connections>
+                                                    <action selector="dismissTouchView:" destination="DWa-TP-1V7" eventType="touchUpInside" id="ppi-jy-dX7"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="c2K-kX-hOi">
+                                        <rect key="frame" x="0.0" y="201.5" width="286" height="84.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l3w-Hq-T2b">
+                                                <rect key="frame" x="0.0" y="0.0" width="84.5" height="84.5"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" image="Rec2"/>
+                                                <connections>
+                                                    <action selector="dismissTouchView:" destination="DWa-TP-1V7" eventType="touchUpInside" id="MZT-bL-BUI"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KBp-Cz-Mxx">
+                                                <rect key="frame" x="100.5" y="0.0" width="85" height="84.5"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" image="Rec2"/>
+                                                <connections>
+                                                    <action selector="dismissTouchView:" destination="DWa-TP-1V7" eventType="touchUpInside" id="0Um-0K-nnN"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Jd-hY-xvR">
+                                                <rect key="frame" x="201.5" y="0.0" width="84.5" height="84.5"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" image="Rec2"/>
+                                                <connections>
+                                                    <action selector="dismissTouchView:" destination="DWa-TP-1V7" eventType="touchUpInside" id="JN0-GI-kyR"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="GVp-w6-yXV" secondAttribute="height" id="dgb-0s-qsP"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="szc-gp-IAS"/>
+                        <color key="backgroundColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="0.29718543046357615" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="szc-gp-IAS" firstAttribute="trailing" secondItem="GVp-w6-yXV" secondAttribute="trailing" constant="64" id="Lwv-bh-ouS"/>
+                            <constraint firstItem="GVp-w6-yXV" firstAttribute="centerY" secondItem="SLH-VK-6w4" secondAttribute="centerY" id="UqV-aL-Uym"/>
+                            <constraint firstItem="GVp-w6-yXV" firstAttribute="centerX" secondItem="SLH-VK-6w4" secondAttribute="centerX" id="oaW-68-iM4"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nVf-zf-BkM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="139" y="712"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="FxA-hc-fVT">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Nvk-hW-CXA" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3XH-xz-86A">
+                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="oKz-bV-1Az"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IiD-PU-G8f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="139.13043478260872" y="-2.0089285714285712"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Rec2" width="85.333335876464844" height="85.333335876464844"/>
+        <image name="ちいかわ" width="188" height="334"/>
+        <image name="ちいかわ2" width="188" height="366.66665649414062"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
