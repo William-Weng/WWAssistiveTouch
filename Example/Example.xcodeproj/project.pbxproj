@@ -19,7 +19,8 @@
 		81F2B1DD2D15618100FAA342 /* WWAssistiveTouch in Frameworks */ = {isa = PBXBuildFile; productRef = 81F2B1DC2D15618100FAA342 /* WWAssistiveTouch */; };
 		81F2B1E02D1561FB00FAA342 /* WWAssistiveTouch in Frameworks */ = {isa = PBXBuildFile; productRef = 81F2B1DF2D1561FB00FAA342 /* WWAssistiveTouch */; };
 		81F2B1E62D15647E00FAA342 /* WWAssistiveTouch in Frameworks */ = {isa = PBXBuildFile; productRef = 81F2B1E52D15647E00FAA342 /* WWAssistiveTouch */; };
-		81F2B1E92D1564AA00FAA342 /* WWAssistiveTouch in Frameworks */ = {isa = PBXBuildFile; productRef = 81F2B1E82D1564AA00FAA342 /* WWAssistiveTouch */; };
+		81F2B1EC2D156AC900FAA342 /* WWAssistiveTouch in Frameworks */ = {isa = PBXBuildFile; productRef = 81F2B1EB2D156AC900FAA342 /* WWAssistiveTouch */; };
+		81F2B1EF2D156F7F00FAA342 /* WWAssistiveTouch in Frameworks */ = {isa = PBXBuildFile; productRef = 81F2B1EE2D156F7F00FAA342 /* WWAssistiveTouch */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,12 +40,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				81F2B1E92D1564AA00FAA342 /* WWAssistiveTouch in Frameworks */,
+				81F2B1EC2D156AC900FAA342 /* WWAssistiveTouch in Frameworks */,
 				81F2B1E02D1561FB00FAA342 /* WWAssistiveTouch in Frameworks */,
 				81F2B1E62D15647E00FAA342 /* WWAssistiveTouch in Frameworks */,
 				81F2B1DD2D15618100FAA342 /* WWAssistiveTouch in Frameworks */,
 				81F2B1D72D155F8200FAA342 /* WWAssistiveTouch in Frameworks */,
 				8155EDC72D14172300EB34DD /* WWAssistiveTouch in Frameworks */,
+				81F2B1EF2D156F7F00FAA342 /* WWAssistiveTouch in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,7 +146,8 @@
 				81F2B1DC2D15618100FAA342 /* WWAssistiveTouch */,
 				81F2B1DF2D1561FB00FAA342 /* WWAssistiveTouch */,
 				81F2B1E52D15647E00FAA342 /* WWAssistiveTouch */,
-				81F2B1E82D1564AA00FAA342 /* WWAssistiveTouch */,
+				81F2B1EB2D156AC900FAA342 /* WWAssistiveTouch */,
+				81F2B1EE2D156F7F00FAA342 /* WWAssistiveTouch */,
 			);
 			productName = Example;
 			productReference = 817567F82CA2C2B400B24577 /* Example.app */;
@@ -175,7 +178,7 @@
 			);
 			mainGroup = 817567EF2CA2C2B400B24577;
 			packageReferences = (
-				81F2B1E72D1564AA00FAA342 /* XCRemoteSwiftPackageReference "WWAssistiveTouch" */,
+				81F2B1ED2D156F7F00FAA342 /* XCRemoteSwiftPackageReference "WWAssistiveTouch" */,
 			);
 			productRefGroup = 817567F92CA2C2B400B24577 /* Products */;
 			projectDirPath = "";
@@ -442,7 +445,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		81F2B1E72D1564AA00FAA342 /* XCRemoteSwiftPackageReference "WWAssistiveTouch" */ = {
+		81F2B1ED2D156F7F00FAA342 /* XCRemoteSwiftPackageReference "WWAssistiveTouch" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/William-Weng/WWAssistiveTouch";
 			requirement = {
@@ -473,9 +476,13 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = WWAssistiveTouch;
 		};
-		81F2B1E82D1564AA00FAA342 /* WWAssistiveTouch */ = {
+		81F2B1EB2D156AC900FAA342 /* WWAssistiveTouch */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 81F2B1E72D1564AA00FAA342 /* XCRemoteSwiftPackageReference "WWAssistiveTouch" */;
+			productName = WWAssistiveTouch;
+		};
+		81F2B1EE2D156F7F00FAA342 /* WWAssistiveTouch */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 81F2B1ED2D156F7F00FAA342 /* XCRemoteSwiftPackageReference "WWAssistiveTouch" */;
 			productName = WWAssistiveTouch;
 		};
 /* End XCSwiftPackageProductDependency section */

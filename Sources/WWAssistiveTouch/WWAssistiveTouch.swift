@@ -10,6 +10,13 @@ import UIKit
 // MARK: - AssistiveTouchWindow
 open class WWAssistiveTouch: UIWindow {
     
+    /// 動作狀態
+    public enum Status {
+        case display    // 顯示
+        case animation  // 動畫中
+        case dismiss    // 隱藏
+    }
+    
     public weak var delegate: WWAssistiveTouchDelegate?
     
     private lazy var assistiveTouch = UIStoryboard(name: "Storyboard", bundle: .module).instantiateViewController(withIdentifier: "AssistiveTouch") as? AssistiveTouchViewController
@@ -39,9 +46,8 @@ public extension WWAssistiveTouch {
     /// - Parameters:
     ///   - duration: 動畫時間
     ///   - curve: 動畫曲線效果
-    ///   - completion: 完成後要做的動作
-    func display(with duration: TimeInterval = 0.25, curve: UIView.AnimationCurve = .easeInOut, completion: (() -> Void)? = nil) {
-        assistiveTouch?.containerViewAnimation(isDisplay: true, duration: duration, curve: curve, completion: completion)
+    func display(with duration: TimeInterval = 0.25, curve: UIView.AnimationCurve = .easeInOut) {
+        assistiveTouch?.containerViewAnimation(isDisplay: true, duration: duration, curve: curve)
     }
     
     /// [隱藏AssistiveTouch的內容](https://mrmad.com.tw/ios-13-assistive-touch)
@@ -49,8 +55,8 @@ public extension WWAssistiveTouch {
     ///   - duration: 動畫時間
     ///   - curve: 動畫曲線效果
     ///   - completion: 完成後要做的動作
-    func dismiss(with duration: TimeInterval = 0.25, curve: UIView.AnimationCurve = .easeInOut, completion: (() -> Void)? = nil) {
-        assistiveTouch?.containerViewAnimation(isDisplay: false, duration: duration, curve: curve, completion: completion)
+    func dismiss(with duration: TimeInterval = 0.25, curve: UIView.AnimationCurve = .easeInOut) {
+        assistiveTouch?.containerViewAnimation(isDisplay: false, duration: duration, curve: curve)
     }
 }
 
@@ -66,6 +72,7 @@ private extension WWAssistiveTouch {
     func initSetting(with touchViewController: UIViewController, frame: CGRect, icon: UIImage?, delegate: WWAssistiveTouchDelegate?) {
         
         windowScene = UIWindowScene._current
+        self.delegate = delegate
         
         assistiveTouch?.touchViewController = touchViewController
         assistiveTouch?.touchViewFrame = frame
@@ -76,5 +83,7 @@ private extension WWAssistiveTouch {
             ._windowLevel(.alert + 1000)
             ._rootViewController(assistiveTouch)
             ._makeKeyAndVisible()
+        
+        self.delegate?.assistiveTouch(self, status: .dismiss)
     }
 }

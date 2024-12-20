@@ -58,7 +58,7 @@ final class AssistiveTouchViewController: UIViewController {
         guard let assistiveTouch = view.window as? WWAssistiveTouch,
               let delegate = delegate
         else {
-            containerViewAnimation(isDisplay: true, duration: 0.25, curve: .easeInOut, completion: nil)
+            containerViewAnimation(isDisplay: true, duration: 0.25, curve: .easeInOut)
             return
         }
         
@@ -74,22 +74,23 @@ extension AssistiveTouchViewController {
     ///   - isDisplay: Bool
     ///   - duration: TimeInterval
     ///   - curve: UIView.AnimationCurve
-    ///   - completion: (() -> Void)?
-    func containerViewAnimation(isDisplay: Bool, duration: TimeInterval, curve: UIView.AnimationCurve, completion: (() -> Void)?) {
+    func containerViewAnimation(isDisplay: Bool, duration: TimeInterval, curve: UIView.AnimationCurve) {
         
-        guard let window = view.window else { return }
+        guard let window = view.window as? WWAssistiveTouch else { return }
         
         var windowFrame = touchViewFrame
         
+        !isDisplay ? delegate?.assistiveTouch(window, status: .display) : delegate?.assistiveTouch(window, status: .dismiss)
         if isDisplay { touchViewFrame = window.frame; windowFrame = UIScreen.main.bounds }
         displayTouchContainerView(!isDisplay)
         
         let animator = UIViewPropertyAnimator(duration: duration, curve: curve) { [unowned self] in
             window.frame = windowFrame
+            delegate?.assistiveTouch(window, status: .animation)
             displayTouchContainerView(isDisplay)
         }
         
-        animator.addCompletion { _ in completion?() }
+        animator.addCompletion { [unowned self] _ in isDisplay ? delegate?.assistiveTouch(window, status: .display) : delegate?.assistiveTouch(window, status: .dismiss) }
         animator.startAnimation()
     }
 }

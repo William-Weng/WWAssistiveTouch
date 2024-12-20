@@ -22,9 +22,14 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
+// MARK: - WWAssistiveTouchDelegate
 extension AppDelegate: WWAssistiveTouchDelegate {
     
     func assistiveTouch(_ assistiveTouch: WWAssistiveTouch, isTouched: Bool) {
         if (isTouched) { assistiveTouch.display() }
+    }
+    
+    func assistiveTouch(_ assistiveTouch: WWAssistiveTouch, status: WWAssistiveTouch.Status) {
+        print(status)
     }
 }

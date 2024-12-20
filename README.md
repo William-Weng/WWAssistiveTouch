@@ -11,20 +11,21 @@
 ## [Installation with Swift Package Manager](https://medium.com/彼得潘的-swift-ios-app-開發問題解答集/使用-spm-安裝第三方套件-xcode-11-新功能-2c4ffcf85b4b)
 ```bash
 dependencies: [
-    .package(url: "https://github.com/William-Weng/WWAssistiveTouch.git", .upToNextMajor(from: "1.0.3"))
+    .package(url: "https://github.com/William-Weng/WWAssistiveTouch.git", .upToNextMajor(from: "1.1.0"))
 ]
 ```
 
 ## [可用函式](https://ezgif.com/video-to-webp)
 |函式|說明|
 |-|-|
-|display(with:curve:completion:)|顯示AssistiveTouch的內容|
-|dismiss(with:curve:completion:)|隱藏AssistiveTouch的內容|
+|display(with:curve:)|顯示AssistiveTouch的內容|
+|dismiss(with:curve:)|隱藏AssistiveTouch的內容|
 
 ## WWAssistiveTouchDelegate
 |函式|說明|
 |-|-|
 |assistiveTouch(_:isTouched:)|AssistiveTouch是否被按下|
+|assistiveTouch(_:status:)|AssistiveTouch的顯示狀態|
 
 ## Example
 ```swift
@@ -49,6 +50,10 @@ extension AppDelegate: WWAssistiveTouchDelegate {
     
     func assistiveTouch(_ assistiveTouch: WWAssistiveTouch, isTouched: Bool) {
         if (isTouched) { assistiveTouch.display() }
+    }
+    
+    func assistiveTouch(_ assistiveTouch: WWAssistiveTouch, status: WWAssistiveTouch.Status) {
+        print(status)
     }
 }
 ```
