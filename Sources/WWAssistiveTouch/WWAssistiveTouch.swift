@@ -19,14 +19,6 @@ open class WWAssistiveTouch: UIWindow {
         
     private lazy var assistiveTouch = UIStoryboard(name: "Storyboard", bundle: .module).instantiateViewController(withIdentifier: "AssistiveTouch") as? AssistiveTouchViewController
     
-    private override init(frame: CGRect) {
-        super.init(frame: frame)
-    }
-    
-    public required init?(coder: NSCoder) {
-        super.init(coder: coder)
-    }
-    
     public convenience init(touchViewController: UIViewController, frame: CGRect = .init(origin: .init(x: 256, y: 256), size: .init(width: 64, height: 64)), icon: UIImage? = nil, delegate: WWAssistiveTouchDelegate? = nil) {
         self.init(frame: frame)
         self.initSetting(with: touchViewController, frame: frame, icon: icon, delegate: delegate)
