@@ -16,7 +16,7 @@ open class WWAssistiveTouch: UIWindow {
         case animation  // 動畫中
         case dismiss    // 隱藏
     }
-        
+    
     private lazy var assistiveTouch = UIStoryboard(name: "Storyboard", bundle: .module).instantiateViewController(withIdentifier: "AssistiveTouch") as? AssistiveTouchViewController
     
     public convenience init(touchViewController: UIViewController, frame: CGRect = .init(origin: .init(x: 256, y: 256), size: .init(width: 64, height: 64)), icon: UIImage? = nil, delegate: WWAssistiveTouchDelegate? = nil) {

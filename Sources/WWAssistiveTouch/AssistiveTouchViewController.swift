@@ -170,13 +170,13 @@ private extension AssistiveTouchViewController {
     /// - Returns: CGPoint
     func automoveCenter(with window: UIWindow) -> CGPoint {
         
-        let center = window.center
+        let windowCenter = window.center
         let screenBounds = UIScreen.main.bounds
-        let screenCenter = CGPoint(x: UIScreen.main.bounds.width * 0.5, y: UIScreen.main.bounds.height * 0.5)
+        let screenCenter = CGPoint(x: screenBounds.width * 0.5, y: screenBounds.height * 0.5)
         let touchImageCenter = touchImageView.center
         
-        if (center.x < screenCenter.x) { return .init(x: touchImageCenter.x, y: center.y) }
-        return .init(x: screenBounds.width - touchImageCenter.x , y: center.y)
+        if (windowCenter.x < screenCenter.x) { return .init(x: touchImageCenter.x, y: windowCenter.y) }
+        return .init(x: screenBounds.width - touchImageCenter.x , y: windowCenter.y)
     }
     
     /// 設定要不要顯示內容畫面

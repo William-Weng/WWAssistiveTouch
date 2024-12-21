@@ -1,4 +1,5 @@
 {
+  "originHash" : "02f1401477a81422af5c5a9ce0c0d8bffa721304eea0009464dd87b4af395dec",
   "pins" : [
     {
       "identity" : "wwassistivetouch",
@@ -10,5 +11,5 @@
       }
     }
   ],
-  "version" : 2
+  "version" : 3
 }
