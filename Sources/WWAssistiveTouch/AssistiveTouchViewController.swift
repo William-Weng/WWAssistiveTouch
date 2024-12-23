@@ -19,6 +19,8 @@ final class AssistiveTouchViewController: UIViewController {
     var touchViewFrame: CGRect = .zero
     var icon: UIImage?
     
+    private var effectViewController: UIViewController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initSetting()
@@ -27,6 +29,10 @@ final class AssistiveTouchViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if let window = view.window { automoveCenterAction(window) }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        self.effectViewController = segue.destination
     }
     
     deinit {
@@ -85,12 +91,19 @@ extension AssistiveTouchViewController {
         displayTouchContainerView(!isDisplay)
         
         let animator = UIViewPropertyAnimator(duration: duration, curve: curve) { [unowned self] in
+            
+            if !isDisplay { changeContainerView(with: isDisplay) }
+            
             window.frame = windowFrame
             delegate?.assistiveTouch(window, status: .animation)
             displayTouchContainerView(isDisplay)
         }
         
-        animator.addCompletion { [unowned self] _ in isDisplay ? delegate?.assistiveTouch(window, status: .display) : delegate?.assistiveTouch(window, status: .dismiss) }
+        animator.addCompletion { [unowned self] _ in
+            if isDisplay { changeContainerView(with: isDisplay) }
+            isDisplay ? delegate?.assistiveTouch(window, status: .display) : delegate?.assistiveTouch(window, status: .dismiss)
+        }
+        
         animator.startAnimation()
     }
 }
@@ -101,7 +114,7 @@ private extension AssistiveTouchViewController {
     /// 初始化設定
     func initSetting() {
         initGestureSetting()
-        initTouchViewControllerSetting()
+        displayTouchContainerView(false)
     }
     
     /// [初始化觸碰設定](https://look.s3.com.tw/look/living/ss4gw0/page/21458)
@@ -115,15 +128,6 @@ private extension AssistiveTouchViewController {
         touchImageView.isUserInteractionEnabled = true
         touchImageView.addGestureRecognizer(tap)
         touchImageView.addGestureRecognizer(drag)
-    }
-    
-    /// 初始化內容ViewController的設定
-    func initTouchViewControllerSetting() {
-        
-        guard let touchViewController = touchViewController else { return }
-        
-        _changeContainerView(at: touchContainerView, to: touchViewController)
-        displayTouchContainerView(false)
     }
     
     /// 拖曳移動中點
@@ -177,6 +181,20 @@ private extension AssistiveTouchViewController {
         
         if (windowCenter.x < screenCenter.x) { return .init(x: touchImageCenter.x, y: windowCenter.y) }
         return .init(x: screenBounds.width - touchImageCenter.x , y: windowCenter.y)
+    }
+    
+    /// 根據是否顯示來決定ContainerView
+    /// - Parameter isDisplay: Bool
+    func changeContainerView(with isDisplay: Bool) {
+        
+        guard let touchViewController = touchViewController,
+              let effectViewController = effectViewController
+        else {
+            return
+        }
+        
+        if isDisplay { _changeContainerView(at: touchContainerView, from: effectViewController, to: touchViewController); return}
+        _changeContainerView(at: touchContainerView, from: touchViewController, to: effectViewController)
     }
     
     /// 設定要不要顯示內容畫面

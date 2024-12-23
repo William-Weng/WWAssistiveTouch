@@ -8,14 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		649C7C032D169BAB00BB1E4A /* WWAssistiveTouch in Frameworks */ = {isa = PBXBuildFile; productRef = 649C7C022D169BAB00BB1E4A /* WWAssistiveTouch */; };
-		64EAB1762D16A35C00AD3DE4 /* WWAssistiveTouch in Frameworks */ = {isa = PBXBuildFile; productRef = 64EAB1752D16A35C00AD3DE4 /* WWAssistiveTouch */; };
 		811E32562D15016A00693BC0 /* TouchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811E32552D15016A00693BC0 /* TouchViewController.swift */; };
+		812E38EF2D1907DA00B8F847 /* WWAssistiveTouch in Frameworks */ = {isa = PBXBuildFile; productRef = 812E38EE2D1907DA00B8F847 /* WWAssistiveTouch */; };
 		817567FC2CA2C2B400B24577 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817567FB2CA2C2B400B24577 /* AppDelegate.swift */; };
 		817568032CA2C2B400B24577 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 817568012CA2C2B400B24577 /* Main.storyboard */; };
 		817568052CA2C2B500B24577 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 817568042CA2C2B500B24577 /* Assets.xcassets */; };
 		817568082CA2C2B500B24577 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 817568062CA2C2B500B24577 /* LaunchScreen.storyboard */; };
 		817568142CA2C33600B24577 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817568122CA2C33600B24577 /* Constant.swift */; };
 		817568152CA2C33600B24577 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817568132CA2C33600B24577 /* Extension.swift */; };
+		81FC9FF52D19360700058725 /* WWAssistiveTouch in Frameworks */ = {isa = PBXBuildFile; productRef = 81FC9FF42D19360700058725 /* WWAssistiveTouch */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,7 +36,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				64EAB1762D16A35C00AD3DE4 /* WWAssistiveTouch in Frameworks */,
+				81FC9FF52D19360700058725 /* WWAssistiveTouch in Frameworks */,
+				812E38EF2D1907DA00B8F847 /* WWAssistiveTouch in Frameworks */,
 				649C7C032D169BAB00BB1E4A /* WWAssistiveTouch in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -140,7 +142,8 @@
 			name = Example;
 			packageProductDependencies = (
 				649C7C022D169BAB00BB1E4A /* WWAssistiveTouch */,
-				64EAB1752D16A35C00AD3DE4 /* WWAssistiveTouch */,
+				812E38EE2D1907DA00B8F847 /* WWAssistiveTouch */,
+				81FC9FF42D19360700058725 /* WWAssistiveTouch */,
 			);
 			productName = Example;
 			productReference = 817567F82CA2C2B400B24577 /* Example.app */;
@@ -171,7 +174,7 @@
 			);
 			mainGroup = 817567EF2CA2C2B400B24577;
 			packageReferences = (
-				64EAB1742D16A35C00AD3DE4 /* XCRemoteSwiftPackageReference "WWAssistiveTouch" */,
+				81FC9FF32D19360700058725 /* XCRemoteSwiftPackageReference "WWAssistiveTouch" */,
 			);
 			productRefGroup = 817567F92CA2C2B400B24577 /* Products */;
 			projectDirPath = "";
@@ -438,7 +441,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		64EAB1742D16A35C00AD3DE4 /* XCRemoteSwiftPackageReference "WWAssistiveTouch" */ = {
+		81FC9FF32D19360700058725 /* XCRemoteSwiftPackageReference "WWAssistiveTouch" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/William-Weng/WWAssistiveTouch";
 			requirement = {
@@ -453,9 +456,13 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = WWAssistiveTouch;
 		};
-		64EAB1752D16A35C00AD3DE4 /* WWAssistiveTouch */ = {
+		812E38EE2D1907DA00B8F847 /* WWAssistiveTouch */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 64EAB1742D16A35C00AD3DE4 /* XCRemoteSwiftPackageReference "WWAssistiveTouch" */;
+			productName = WWAssistiveTouch;
+		};
+		81FC9FF42D19360700058725 /* WWAssistiveTouch */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 81FC9FF32D19360700058725 /* XCRemoteSwiftPackageReference "WWAssistiveTouch" */;
 			productName = WWAssistiveTouch;
 		};
 /* End XCSwiftPackageProductDependency section */

@@ -170,7 +170,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="szc-gp-IAS"/>
-                        <color key="backgroundColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="0.29718543046357615" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="0.30181601821192056" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="szc-gp-IAS" firstAttribute="trailing" secondItem="GVp-w6-yXV" secondAttribute="trailing" constant="64" id="Lwv-bh-ouS"/>
                             <constraint firstItem="GVp-w6-yXV" firstAttribute="centerY" secondItem="SLH-VK-6w4" secondAttribute="centerY" id="UqV-aL-Uym"/>
