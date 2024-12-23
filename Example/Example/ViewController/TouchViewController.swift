@@ -9,11 +9,6 @@ import UIKit
 
 final class TouchViewController: UIViewController {
     
-    @IBAction func dismissTouchView(_ sender: UIButton) {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        appDelegate.assistiveTouch.dismiss()
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -27,5 +22,10 @@ final class TouchViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         view.alpha = 0.0
+    }
+    
+    @IBAction func dismissTouchView(_ sender: UIButton) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        appDelegate.assistiveTouch.dismiss()
     }
 }
