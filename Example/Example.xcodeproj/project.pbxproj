@@ -446,7 +446,7 @@
 			repositoryURL = "https://github.com/William-Weng/WWAssistiveTouch";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.1.1;
+				minimumVersion = 1.1.2;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
