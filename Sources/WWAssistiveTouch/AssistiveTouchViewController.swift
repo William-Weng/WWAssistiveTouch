@@ -18,6 +18,7 @@ final class AssistiveTouchViewController: UIViewController {
     var touchViewController: UIViewController?
     var touchViewFrame: CGRect = .zero
     var icon: UIImage?
+    var gap: CGFloat = 5.0
     
     private var effectViewController: UIViewController?
     
@@ -28,7 +29,7 @@ final class AssistiveTouchViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if let window = view.window { automoveCenterAction(window) }
+        if let window = view.window { automoveCenterAction(window, gap: gap) }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -51,7 +52,7 @@ final class AssistiveTouchViewController: UIViewController {
         
         switch pan.state {
         case .began, .changed: moveCenterAction(window, pan: pan)
-        case .ended: automoveCenterAction(window)
+        case .ended: automoveCenterAction(window, gap: gap)
         case .cancelled, .possible, .failed: break
         @unknown default: break
         }
@@ -141,10 +142,10 @@ private extension AssistiveTouchViewController {
     
     /// 自動移動中點的位置到邊上
     /// - Parameter window: UIWindow
-    func automoveCenterAction(_ window: UIWindow) {
+    func automoveCenterAction(_ window: UIWindow, gap: CGFloat) {
         
         UIViewPropertyAnimator(duration: 1.0, dampingRatio: 0.5) { [unowned self] in
-            window.center = automoveCenter(with: window)
+            window.center = automoveCenter(with: window, gap: gap)
         }.startAnimation()
     }
     
@@ -170,17 +171,24 @@ private extension AssistiveTouchViewController {
     }
     
     /// 自動設定Window的中點位置 => 貼在左右畫面的邊上
-    /// - Parameter window: UIWindow
+    /// - Parameters:
+    ///   - window: UIWindow
+    ///   - gap: 與邊框的間隔
     /// - Returns: CGPoint
-    func automoveCenter(with window: UIWindow) -> CGPoint {
+    func automoveCenter(with window: UIWindow, gap: CGFloat) -> CGPoint {
         
         let windowCenter = window.center
         let screenBounds = UIScreen.main.bounds
         let screenCenter = CGPoint(x: screenBounds.width * 0.5, y: screenBounds.height * 0.5)
         let touchImageCenter = touchImageView.center
         
-        if (windowCenter.x < screenCenter.x) { return .init(x: touchImageCenter.x, y: windowCenter.y) }
-        return .init(x: screenBounds.width - touchImageCenter.x , y: windowCenter.y)
+        var center = windowCenter
+        center.x = (windowCenter.x < screenCenter.x) ? touchImageCenter.x + gap : screenBounds.width - touchImageCenter.x - gap
+        
+        if (center.y <= touchImageCenter.y) { center.y = touchImageCenter.y + gap }
+        if (center.y >= screenBounds.height - touchImageCenter.y) { center.y = screenBounds.height - touchImageCenter.y - gap }
+        
+        return center
     }
     
     /// 根據是否顯示來決定ContainerView

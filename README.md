@@ -11,13 +11,14 @@
 ## [Installation with Swift Package Manager](https://medium.com/彼得潘的-swift-ios-app-開發問題解答集/使用-spm-安裝第三方套件-xcode-11-新功能-2c4ffcf85b4b)
 ```bash
 dependencies: [
-    .package(url: "https://github.com/William-Weng/WWAssistiveTouch.git", .upToNextMajor(from: "1.1.2"))
+    .package(url: "https://github.com/William-Weng/WWAssistiveTouch.git", .upToNextMajor(from: "1.1.3"))
 ]
 ```
 
 ## [可用函式](https://ezgif.com/video-to-webp)
 |函式|說明|
 |-|-|
+|init(touchViewController:frame:size:gap:icon:delegate:)|初始化AssistiveTouch|
 |display(with:curve:)|顯示AssistiveTouch的內容|
 |dismiss(with:curve:)|隱藏AssistiveTouch的內容|
 
