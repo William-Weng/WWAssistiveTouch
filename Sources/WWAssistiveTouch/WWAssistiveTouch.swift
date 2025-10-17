@@ -19,7 +19,7 @@ open class WWAssistiveTouch: UIWindow {
     
     private lazy var assistiveTouch = UIStoryboard(name: "Storyboard", bundle: .module).instantiateViewController(withIdentifier: "AssistiveTouch") as? AssistiveTouchViewController
     
-    public convenience init(touchViewController: UIViewController, frame: CGRect = .init(origin: .init(x: 256, y: 256), size: .init(width: 64, height: 64)), gap: CGFloat = 8, icon: UIImage? = nil, delegate: WWAssistiveTouchDelegate? = nil) {
+    public convenience init(touchViewController: UIViewController, frame: CGRect = .init(origin: .init(x: 256, y: 256), size: .init(width: 64, height: 64)), gap: CGFloat = 8, icon: UIImage? = nil, delegate: WWAssistiveTouch.Delegate? = nil) {
         self.init(frame: frame)
         self.initSetting(with: touchViewController, frame: frame, gap: gap, icon: icon, delegate: delegate)
     }
@@ -56,7 +56,7 @@ private extension WWAssistiveTouch {
     ///   - gap: CGFloat
     ///   - icon: UIImage?
     ///   - delegate: WWAssistiveTouchDelegate?
-    func initSetting(with touchViewController: UIViewController, frame: CGRect, gap: CGFloat, icon: UIImage?, delegate: WWAssistiveTouchDelegate?) {
+    func initSetting(with touchViewController: UIViewController, frame: CGRect, gap: CGFloat, icon: UIImage?, delegate: WWAssistiveTouch.Delegate?) {
         
         windowScene = UIWindowScene._current
         

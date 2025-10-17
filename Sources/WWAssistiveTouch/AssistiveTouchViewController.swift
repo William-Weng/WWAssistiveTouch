@@ -13,7 +13,7 @@ final class AssistiveTouchViewController: UIViewController {
     @IBOutlet weak var touchImageView: UIImageView!
     @IBOutlet weak var touchContainerView: UIView!
     
-    weak var delegate: WWAssistiveTouchDelegate?
+    weak var delegate: WWAssistiveTouch.Delegate?
     
     var touchViewController: UIViewController?
     var touchViewFrame: CGRect = .zero
