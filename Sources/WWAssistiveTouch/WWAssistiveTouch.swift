@@ -21,7 +21,7 @@ open class WWAssistiveTouch: UIWindow {
     
     public convenience init(touchViewController: UIViewController, frame: CGRect = .init(origin: .init(x: 256, y: 256), size: .init(width: 64, height: 64)), gap: CGFloat = 8, icon: UIImage? = nil, isAutoAdjust: Bool = false, delegate: WWAssistiveTouch.Delegate? = nil) {
         self.init(frame: frame)
-        self.initSetting(with: touchViewController, frame: frame, gap: gap, icon: icon, delegate: delegate)
+        self.initSetting(with: touchViewController, frame: frame, gap: gap, icon: icon, isAutoAdjust: isAutoAdjust, delegate: delegate)
     }
 }
 
@@ -62,7 +62,7 @@ private extension WWAssistiveTouch {
     ///   - icon: UIImage?
     ///   - isAutoAdjust: 自動更新中點位置
     ///   - delegate: WWAssistiveTouchDelegate?
-    func initSetting(with touchViewController: UIViewController, frame: CGRect, gap: CGFloat, icon: UIImage?, isAutoAdjust: Bool = false, delegate: WWAssistiveTouch.Delegate?) {
+    func initSetting(with touchViewController: UIViewController, frame: CGRect, gap: CGFloat, icon: UIImage?, isAutoAdjust: Bool, delegate: WWAssistiveTouch.Delegate?) {
         
         windowScene = UIWindowScene._current
         
