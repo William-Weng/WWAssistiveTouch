@@ -9,7 +9,7 @@ import UIKit
 
 // MARK: - AssistiveTouchWindow
 open class WWAssistiveTouch: UIWindow {
-    
+        
     /// 動作狀態
     public enum Status {
         case display    // 顯示
@@ -19,7 +19,7 @@ open class WWAssistiveTouch: UIWindow {
     
     private lazy var assistiveTouch = UIStoryboard(name: "Storyboard", bundle: .module).instantiateViewController(withIdentifier: "AssistiveTouch") as? AssistiveTouchViewController
     
-    public convenience init(touchViewController: UIViewController, frame: CGRect = .init(origin: .init(x: 256, y: 256), size: .init(width: 64, height: 64)), gap: CGFloat = 8, icon: UIImage? = nil, delegate: WWAssistiveTouch.Delegate? = nil) {
+    public convenience init(touchViewController: UIViewController, frame: CGRect = .init(origin: .init(x: 256, y: 256), size: .init(width: 64, height: 64)), gap: CGFloat = 8, icon: UIImage? = nil, isAutoAdjust: Bool = false, delegate: WWAssistiveTouch.Delegate? = nil) {
         self.init(frame: frame)
         self.initSetting(with: touchViewController, frame: frame, gap: gap, icon: icon, delegate: delegate)
     }
@@ -44,6 +44,11 @@ public extension WWAssistiveTouch {
     func dismiss(with duration: TimeInterval = 0.25, curve: UIView.AnimationCurve = .easeInOut) {
         assistiveTouch?.containerViewAnimation(isDisplay: false, duration: duration, curve: curve)
     }
+    
+    /// 自動校正中點位置
+    func adjust() {
+        assistiveTouch?.adjust(window: self)
+    }
 }
 
 // MARK: - 小工具
@@ -55,8 +60,9 @@ private extension WWAssistiveTouch {
     ///   - frame: CGRect
     ///   - gap: CGFloat
     ///   - icon: UIImage?
+    ///   - isAutoAdjust: 自動更新中點位置
     ///   - delegate: WWAssistiveTouchDelegate?
-    func initSetting(with touchViewController: UIViewController, frame: CGRect, gap: CGFloat, icon: UIImage?, delegate: WWAssistiveTouch.Delegate?) {
+    func initSetting(with touchViewController: UIViewController, frame: CGRect, gap: CGFloat, icon: UIImage?, isAutoAdjust: Bool = false, delegate: WWAssistiveTouch.Delegate?) {
         
         windowScene = UIWindowScene._current
         
@@ -65,6 +71,7 @@ private extension WWAssistiveTouch {
         assistiveTouch?.delegate = delegate
         assistiveTouch?.icon = icon
         assistiveTouch?.gap = gap
+        assistiveTouch?.isAutoAdjust = isAutoAdjust
         
         self._backgroundColor(.clear)
             ._windowLevel(.alert + 1000)

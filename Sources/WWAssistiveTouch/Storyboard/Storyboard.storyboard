@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -29,14 +29,14 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="QtJ-jr-n3C" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="7fE-82-Bcw"/>
-                            <constraint firstAttribute="bottom" secondItem="uEr-dY-Jrh" secondAttribute="bottom" id="8Kk-yk-l4d"/>
-                            <constraint firstItem="uEr-dY-Jrh" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Kgs-we-Low"/>
-                            <constraint firstItem="QtJ-jr-n3C" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="PPs-eF-3xQ"/>
-                            <constraint firstAttribute="bottom" secondItem="QtJ-jr-n3C" secondAttribute="bottom" id="TQJ-JF-U6h"/>
-                            <constraint firstItem="uEr-dY-Jrh" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="VVt-LY-Xge"/>
-                            <constraint firstItem="uEr-dY-Jrh" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="YKt-n6-afa"/>
-                            <constraint firstItem="QtJ-jr-n3C" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="uFA-Mg-xTP"/>
+                            <constraint firstItem="uEr-dY-Jrh" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="5l5-ce-GEz"/>
+                            <constraint firstAttribute="bottom" secondItem="QtJ-jr-n3C" secondAttribute="bottom" id="Ow3-G6-VFx"/>
+                            <constraint firstItem="QtJ-jr-n3C" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="Rb0-VQ-sYt"/>
+                            <constraint firstAttribute="trailing" secondItem="uEr-dY-Jrh" secondAttribute="trailing" id="UAu-3u-QIp"/>
+                            <constraint firstItem="uEr-dY-Jrh" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="bSs-xT-UdP"/>
+                            <constraint firstAttribute="trailing" secondItem="QtJ-jr-n3C" secondAttribute="trailing" id="dZK-Rz-JuA"/>
+                            <constraint firstAttribute="bottom" secondItem="uEr-dY-Jrh" secondAttribute="bottom" id="rzb-Fe-pdA"/>
+                            <constraint firstItem="QtJ-jr-n3C" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="yGY-OT-jwD"/>
                         </constraints>
                     </view>
                     <connections>
@@ -46,7 +46,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-242" y="-121"/>
+            <point key="canvasLocation" x="-242.25352112676057" y="-121.37404580152672"/>
         </scene>
         <!--Effect View Controller-->
         <scene sceneID="1Gr-Df-VbH">

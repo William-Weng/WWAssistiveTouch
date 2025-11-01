@@ -15,12 +15,14 @@ final class AssistiveTouchViewController: UIViewController {
     
     weak var delegate: WWAssistiveTouch.Delegate?
     
-    var touchViewController: UIViewController?
+    var isAutoAdjust = false
     var touchViewFrame: CGRect = .zero
     var icon: UIImage?
     var gap: CGFloat = 5.0
-    
+    var touchViewController: UIViewController?
+
     private var effectViewController: UIViewController?
+    private var previousCenter: CGPoint = .zero
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +32,11 @@ final class AssistiveTouchViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if let window = view.window { automoveCenterAction(window, gap: gap) }
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        if isAutoAdjust { autoAdjust(to: size, with: coordinator) }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -65,8 +72,7 @@ final class AssistiveTouchViewController: UIViewController {
         guard let assistiveTouch = view.window as? WWAssistiveTouch,
               let delegate = delegate
         else {
-            containerViewAnimation(isDisplay: true, duration: 0.25, curve: .easeInOut)
-            return
+            containerViewAnimation(isDisplay: true, duration: 0.25, curve: .easeInOut); return
         }
         
         delegate.assistiveTouch(assistiveTouch, isTouched: true)
@@ -107,13 +113,39 @@ extension AssistiveTouchViewController {
         
         animator.startAnimation()
     }
+    
+    /// 校正中點位置
+    /// - Parameter window: UIWindow
+    func adjust(window: UIWindow) {
+        window.center = previousCenter
+        window.alpha = 1.0
+        automoveCenterAction(window, gap: gap)
+    }
+    
+    /// 自動校正中點位置
+    /// - Parameters:
+    ///   - size: CGSize
+    ///   - coordinator: UIViewControllerTransitionCoordinator
+    func autoAdjust(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        
+        guard let window = view.window else { return }
+        
+        window.alpha = 0.0
+        
+        coordinator.animate { context in
+            window.alpha = 0.0
+        } completion: { [self] context in
+            adjust(window: window)
+        }
+    }
 }
 
 // MARK: - 小工具
 private extension AssistiveTouchViewController {
-        
+    
     /// 初始化設定
     func initSetting() {
+        previousCenter = touchViewFrame.origin
         initGestureSetting()
         displayTouchContainerView(false)
     }
@@ -143,6 +175,8 @@ private extension AssistiveTouchViewController {
     /// 自動移動中點的位置到邊上
     /// - Parameter window: UIWindow
     func automoveCenterAction(_ window: UIWindow, gap: CGFloat) {
+        
+        previousCenter = window.center
         
         UIViewPropertyAnimator(duration: 1.0, dampingRatio: 0.5) { [unowned self] in
             window.center = automoveCenter(with: window, gap: gap)
