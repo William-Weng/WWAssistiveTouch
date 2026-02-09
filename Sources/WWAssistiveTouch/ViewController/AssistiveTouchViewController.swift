@@ -16,6 +16,7 @@ final class AssistiveTouchViewController: UIViewController {
     weak var delegate: WWAssistiveTouch.Delegate?
     
     var isAutoAdjust = false
+    var isDisplay = false
     var touchViewFrame: CGRect = .zero
     var icon: UIImage?
     var gap: CGFloat = 5.0
@@ -36,7 +37,7 @@ final class AssistiveTouchViewController: UIViewController {
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
-        if isAutoAdjust { autoAdjust(to: size, with: coordinator) }
+        if isAutoAdjust { viewWillTransitionAction(to: size, with: coordinator, gap: gap) }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -93,8 +94,11 @@ extension AssistiveTouchViewController {
         
         var windowFrame = touchViewFrame
         
+        self.isDisplay = isDisplay
+        
         !isDisplay ? delegate?.assistiveTouch(window, status: .display) : delegate?.assistiveTouch(window, status: .dismiss)
         if isDisplay { touchViewFrame = window.frame; windowFrame = UIScreen.main.bounds }
+        
         displayTouchContainerView(!isDisplay)
         
         let animator = UIViewPropertyAnimator(duration: duration, curve: curve) { [unowned self] in
@@ -107,16 +111,24 @@ extension AssistiveTouchViewController {
         }
         
         animator.addCompletion { [unowned self] _ in
-            if isDisplay { changeContainerView(with: isDisplay) }
-            isDisplay ? delegate?.assistiveTouch(window, status: .display) : delegate?.assistiveTouch(window, status: .dismiss)
+            
+            if (isDisplay) {
+                changeContainerView(with: isDisplay)
+                delegate?.assistiveTouch(window, status: .display)
+            } else {
+                automoveCenterAction(window, gap: gap)
+                delegate?.assistiveTouch(window, status: .dismiss)
+            }
         }
         
         animator.startAnimation()
     }
     
     /// 校正中點位置
-    /// - Parameter window: UIWindow
-    func adjust(window: UIWindow) {
+    /// - Parameters:
+    ///   - window: UIWindow
+    ///   - gap: CGFloat
+    func adjust(window: UIWindow, gap: CGFloat) {
         window.center = previousCenter
         window.alpha = 1.0
         automoveCenterAction(window, gap: gap)
@@ -126,16 +138,17 @@ extension AssistiveTouchViewController {
     /// - Parameters:
     ///   - size: CGSize
     ///   - coordinator: UIViewControllerTransitionCoordinator
-    func autoAdjust(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+    ///   - gap: CGFloat
+    func autoAdjust(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator, gap: CGFloat) {
         
         guard let window = view.window else { return }
         
         window.alpha = 0.0
-        
+                
         coordinator.animate { context in
             window.alpha = 0.0
         } completion: { [self] context in
-            adjust(window: window)
+            adjust(window: window, gap: gap)
         }
     }
 }
@@ -172,11 +185,25 @@ private extension AssistiveTouchViewController {
         pan.setTranslation(.zero, in: pan.view)
     }
     
-    /// 自動移動中點的位置到邊上
-    /// - Parameter window: UIWindow
+    /// 自動修正中心位置 (如果顯示的話就沒有gap => 滿版)
+    /// - Parameters:
+    ///   - size: CGSize
+    ///   - coordinator: UIViewControllerTransitionCoordinator
+    ///   - gap: CGFloat
+    func viewWillTransitionAction(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator, gap: CGFloat) {
+        if (isDisplay) { return }
+        autoAdjust(to: size, with: coordinator, gap: gap)
+    }
+    
+    /// 自動移動中點的位置到邊上 (如果顯示中就沒有動畫)
+    /// - Parameters:
+    ///   - window: UIWindow
+    ///   - gap: CGFloat
     func automoveCenterAction(_ window: UIWindow, gap: CGFloat) {
         
         previousCenter = window.center
+        
+        if (isDisplay) { window.center = automoveCenter(with: window, gap: 0); return }
         
         UIViewPropertyAnimator(duration: 1.0, dampingRatio: 0.5) { [unowned self] in
             window.center = automoveCenter(with: window, gap: gap)

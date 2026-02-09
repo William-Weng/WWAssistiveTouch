@@ -11,7 +11,7 @@ https://github.com/user-attachments/assets/71e5a8a9-508c-4210-923a-3ead806d3d42
 ## [Installation with Swift Package Manager](https://medium.com/彼得潘的-swift-ios-app-開發問題解答集/使用-spm-安裝第三方套件-xcode-11-新功能-2c4ffcf85b4b)
 ```bash
 dependencies: [
-    .package(url: "https://github.com/William-Weng/WWAssistiveTouch.git", .upToNextMajor(from: "1.2.2"))
+    .package(url: "https://github.com/William-Weng/WWAssistiveTouch.git", .upToNextMajor(from: "1.2.3"))
 ]
 ```
 
@@ -21,7 +21,7 @@ dependencies: [
 |init(touchViewController:frame:size:gap:icon:isAutoAdjust:delegate:)|初始化AssistiveTouch|
 |display(with:curve:)|顯示AssistiveTouch的內容|
 |dismiss(with:curve:)|隱藏AssistiveTouch的內容|
-|adjust()|自動校正中點位置|
+|adjust(gap:)|自動校正中點位置|
 |setTouchViewController(_:)|設定要顯示的ViewController|
 
 ## WWAssistiveTouchDelegate

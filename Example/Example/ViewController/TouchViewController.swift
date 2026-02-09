@@ -11,7 +11,7 @@ import WWAssistiveTouch
 final class TouchViewController: UIViewController {
     
     var assistiveTouch: WWAssistiveTouch?
-    
+        
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         

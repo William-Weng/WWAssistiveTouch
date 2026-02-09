@@ -46,8 +46,9 @@ public extension WWAssistiveTouch {
     }
     
     /// 自動校正中點位置
-    func adjust() {
-        assistiveTouch?.adjust(window: self)
+    /// - Parameter gap: 與邊的間距
+    func adjust(gap: CGFloat = 8) {
+        assistiveTouch?.adjust(window: self, gap: gap)
     }
     
     /// 設定要顯示的ViewController
