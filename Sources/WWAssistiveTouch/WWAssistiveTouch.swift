@@ -49,6 +49,12 @@ public extension WWAssistiveTouch {
     func adjust() {
         assistiveTouch?.adjust(window: self)
     }
+    
+    /// 設定要顯示的ViewController
+    /// - Parameter viewController: UIViewController?
+    func setTouchViewController(_ viewController: UIViewController?) {
+        assistiveTouch?.touchViewController = viewController
+    }
 }
 
 // MARK: - 小工具

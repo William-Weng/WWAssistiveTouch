@@ -11,7 +11,7 @@ https://github.com/user-attachments/assets/71e5a8a9-508c-4210-923a-3ead806d3d42
 ## [Installation with Swift Package Manager](https://medium.com/彼得潘的-swift-ios-app-開發問題解答集/使用-spm-安裝第三方套件-xcode-11-新功能-2c4ffcf85b4b)
 ```bash
 dependencies: [
-    .package(url: "https://github.com/William-Weng/WWAssistiveTouch.git", .upToNextMajor(from: "1.2.0"))
+    .package(url: "https://github.com/William-Weng/WWAssistiveTouch.git", .upToNextMajor(from: "1.2.2"))
 ]
 ```
 
@@ -22,6 +22,7 @@ dependencies: [
 |display(with:curve:)|顯示AssistiveTouch的內容|
 |dismiss(with:curve:)|隱藏AssistiveTouch的內容|
 |adjust()|自動校正中點位置|
+|setTouchViewController(_:)|設定要顯示的ViewController|
 
 ## WWAssistiveTouchDelegate
 |函式|說明|
@@ -38,12 +39,12 @@ import WWAssistiveTouch
 final class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
-    var assistiveTouch: WWAssistiveTouch!
     
-    private lazy var touchViewController = { UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Touch") }()
+    private lazy var touchViewController = { UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Touch") as! TouchViewController }()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        assistiveTouch = WWAssistiveTouch(touchViewController: touchViewController, icon: UIImage(named: "Rec"), delegate: self)
+        let assistiveTouch = WWAssistiveTouch(touchViewController: touchViewController, icon: UIImage(named: "Rec"), isAutoAdjust: true, delegate: self)
+        touchViewController.assistiveTouch = assistiveTouch
         return true
     }
 }
@@ -61,8 +62,11 @@ extension AppDelegate: WWAssistiveTouch.Delegate {
 ```
 ```swift
 import UIKit
+import WWAssistiveTouch
 
 final class TouchViewController: UIViewController {
+    
+    var assistiveTouch: WWAssistiveTouch?
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -80,8 +84,11 @@ final class TouchViewController: UIViewController {
     }
     
     @IBAction func dismissTouchView(_ sender: UIButton) {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        appDelegate.assistiveTouch.dismiss()
+        assistiveTouch?.dismiss()
+    }
+    
+    deinit {
+        assistiveTouch = nil
     }
 }
 ```

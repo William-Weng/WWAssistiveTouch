@@ -12,12 +12,12 @@ import WWAssistiveTouch
 final class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
-    var assistiveTouch: WWAssistiveTouch!
     
-    private lazy var touchViewController = { UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Touch") }()
+    private lazy var touchViewController = { UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Touch") as! TouchViewController }()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        assistiveTouch = WWAssistiveTouch(touchViewController: touchViewController, icon: UIImage(named: "Rec"), isAutoAdjust: true, delegate: self)
+        let assistiveTouch = WWAssistiveTouch(touchViewController: touchViewController, icon: UIImage(named: "Rec"), isAutoAdjust: true, delegate: self)
+        touchViewController.assistiveTouch = assistiveTouch
         return true
     }
 }

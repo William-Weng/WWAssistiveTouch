@@ -6,8 +6,11 @@
 //
 
 import UIKit
+import WWAssistiveTouch
 
 final class TouchViewController: UIViewController {
+    
+    var assistiveTouch: WWAssistiveTouch?
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -25,7 +28,10 @@ final class TouchViewController: UIViewController {
     }
     
     @IBAction func dismissTouchView(_ sender: UIButton) {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        appDelegate.assistiveTouch.dismiss()
+        assistiveTouch?.dismiss()
+    }
+    
+    deinit {
+        assistiveTouch = nil
     }
 }
