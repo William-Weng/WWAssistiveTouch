@@ -85,6 +85,6 @@ private extension WWAssistiveTouch {
             ._rootViewController(assistiveTouch)
             ._makeKeyAndVisible()
         
-        delegate?.assistiveTouch(self, status: .dismiss)
+        delegate?.assistiveTouch(self, status: .display)
     }
 }
