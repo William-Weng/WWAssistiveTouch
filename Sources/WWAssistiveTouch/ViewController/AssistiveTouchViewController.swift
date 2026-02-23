@@ -262,7 +262,7 @@ private extension AssistiveTouchViewController {
             return
         }
         
-        if isDisplay { _changeContainerView(at: touchContainerView, from: effectViewController, to: touchViewController); return}
+        if isDisplay { _changeContainerView(at: touchContainerView, from: effectViewController, to: touchViewController); return }
         _changeContainerView(at: touchContainerView, from: touchViewController, to: effectViewController)
     }
     
